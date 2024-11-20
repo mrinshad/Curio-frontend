@@ -1,0 +1,45 @@
+.div3 {
+  transform: translateX(10%);;
+}
+
+.showAfterTwoSec{
+  animation:appearAfterthreeSec 2s forwards, fadeIn 1s 3s forwards;
+}
+
+.typingDemo {
+  width: 22.5ch;
+  animation: typing 3s;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+
+@keyframes appearAfterthreeSec {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translate3d(0, -20%, 0);
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
