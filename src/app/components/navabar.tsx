@@ -6,11 +6,11 @@ import Link from "next/link";
 export default function SideNav() {
   return (
     <nav className={`${styles.mainContainer} flex justify-between`}>
-      <h1 className={`text-2xl p-5`}>Curio</h1>
+      <Link href="/"><h1 className={`text-2xl p-5`}>Curio</h1></Link>
       <div className={`navLinks`}>
         <ul className={`flex justify-between p-5 pr-10 ${navbarStyles.unli}`}>
           <li className="pr-5">
-            <Link href="\about">About Dev</Link>
+            <Link href="https://mrinshad.github.io/Portfolio/">About Dev</Link>
           </li>
           <li>
             <Link href="https://github.com/mrinshad" target="_blank">
