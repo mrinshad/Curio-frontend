@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { sendRecommendation } from "@/app/services/apiService";
 import MainStyle from "@/app/ui/home.module.css";
@@ -24,7 +24,7 @@ const loadingTexts = [
   "Curating your ultimate ranking...",
 ];
 
-export default function TierList() {
+const TierListContent = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [tierData, setTierData] = useState<TierListData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -112,5 +112,13 @@ export default function TierList() {
       <h1 className="text-3xl font-bold mb-6 opacity-0 animate-slide-in-top" style={{animationDelay: '0s', animationFillMode: 'forwards'}}>{tierData.topic}</h1>
       {renderTierList()}
     </div>
+  );
+};
+
+export default function TierList() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <TierListContent />
+    </Suspense>
   );
 }
